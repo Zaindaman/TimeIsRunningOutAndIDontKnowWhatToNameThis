@@ -18,11 +18,15 @@ public partial class GlobalValues : Node
 	{
 		if(IsBulletTime)
 		{
+			GD.print("paused")
+
 			GetTree().Paused = true;
 		
 		}
 		else
 		{
+			GD.print("Unpaused")
+
 			GetTree().Paused = false;
 		}
 	}
