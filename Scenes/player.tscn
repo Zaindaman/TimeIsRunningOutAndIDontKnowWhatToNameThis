@@ -53,9 +53,9 @@ sprite_frames = SubResource("SpriteFrames_x3wgy")
 shape = SubResource("CircleShape2D_cvnsp")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -154.0
-offset_top = -320.0
-offset_right = 586.0
-offset_bottom = -165.0
-theme_override_font_sizes/font_size = 64
+offset_left = -283.0
+offset_top = -160.0
+offset_right = 457.0
+offset_bottom = -5.0
+theme_override_font_sizes/font_size = 32
 text = "Bullet time NOT ACTIVE "

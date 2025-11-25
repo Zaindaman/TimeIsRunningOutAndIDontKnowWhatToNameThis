@@ -11,17 +11,22 @@ config_version=5
 [application]
 
 config/name="TimeIsRunningOutAndIDontKnowWhatToNameThis"
-run/main_scene="uid://duxcn08pyk2mp"
+run/main_scene="uid://b4w2enwy4mxa"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GlobalValues="*res://Scripts/GlobalValues.cs"
+LevelManager="*res://Scripts/LevelManager.gd"
 
 [dotnet]
 
 project/assembly_name="TimeIsRunningOutAndIDontKnowWhatToNameThis"
+
+[global_group]
+
+Reset_zone="if player enters uwse this to get player to check if collison "
 
 [input]
 
