@@ -9,11 +9,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var dir = get_input_direction()
 	if Input.is_action_just_pressed("CallBulletTime"):
-		if GlobalValues.IsBulletTime == true:
-			GlobalValues.IsBulletTime = false
+		if GlobalValues.isBulletTime == true:
+			GlobalValues.isBulletTime = false
 			$Label.text = "Bullet time NOT ACTIVE"
 		else:
-			GlobalValues.IsBulletTime = true
+			GlobalValues.isBulletTime = true
 			$Label.text = "Bullet time ACTIVE"
 		
 	# Horizontal movement
@@ -47,4 +47,4 @@ func get_input_direction() -> Vector2:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Reset_zone"):
-		pass
+		self.position = $"../Begin".position

@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://duxcn08pyk2mp"]
+[gd_scene load_steps=9 format=4 uid="uid://duxcn08pyk2mp"]
 
-[ext_resource type="PackedScene" uid="uid://78c38ipulmfu" path="res://Scenes/player.tscn" id="1_i51n5"]
-[ext_resource type="Texture2D" uid="uid://c4skymh460tqt" path="res://Assets/new tilemap.png" id="2_apukn"]
-[ext_resource type="PackedScene" uid="uid://sdc63bs26c0b" path="res://Scenes/e_nemy_thing.tscn" id="3_si8r8"]
-[ext_resource type="PackedScene" uid="uid://b468i0i6ery7l" path="res://Scenes/bullet_spawner.tscn" id="4_o1rcq"]
+[ext_resource type="PackedScene" uid="uid://78c38ipulmfu" path="res://Scenes/player.tscn" id="1_6lcx4"]
+[ext_resource type="Texture2D" uid="uid://c4skymh460tqt" path="res://Assets/new tilemap.png" id="2_7g0wd"]
+[ext_resource type="PackedScene" uid="uid://sdc63bs26c0b" path="res://Scenes/e_nemy_thing.tscn" id="3_u6fc8"]
+[ext_resource type="PackedScene" uid="uid://b468i0i6ery7l" path="res://Scenes/bullet_spawner.tscn" id="4_xkdt2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7mb1"]
-texture = ExtResource("2_apukn")
+texture = ExtResource("2_7g0wd")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -143,22 +143,26 @@ sources/0 = SubResource("TileSetAtlasSource_v7mb1")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7mb1"]
 size = Vector2(1151.5, 20)
 
-[node name="TestSceneMain" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i51n5"]
+size = Vector2(20, 47)
 
-[node name="Player" parent="." instance=ExtResource("1_i51n5")]
+[node name="0" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_6lcx4")]
 position = Vector2(2, -19)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
 tile_map_data = PackedByteArray("AACN/8b/AAADAAAAAAD8/wEAAAADAAAAAAD9/wEAAAADAAAAAAD+/wEAAAADAAAAAAD//wEAAAADAAAAAAAAAAEAAAADAAAAAAAAAAIAAAADAAAAAAABAAIAAAADAAAAAAACAAIAAAADAAAAAAACAAEAAAADAAAAAAABAAEAAAADAAAAAAD8/wIAAAADAAAAAAD9/wIAAAADAAAAAAD+/wIAAAADAAAAAAD//wIAAAADAAAAAAADAAIAAAADAAAAAAAEAAIAAAADAAAAAAAFAAIAAAADAAAAAAAGAAIAAAADAAAAAAAHAAIAAAADAAAAAAAIAAIAAAADAAAAAAAJAAIAAAADAAAAAAAKAAIAAAADAAAAAAALAAIAAAADAAAAAAAMAAIAAAADAAAAAAANAAIAAAADAAAAAAAOAAIAAAADAAAAAAAOAAEAAAADAAAAAAANAAEAAAADAAAAAAAMAAEAAAADAAAAAAALAAEAAAADAAAAAAAKAAEAAAADAAAAAAAJAAEAAAADAAAAAAAIAAEAAAADAAAAAAAHAAEAAAADAAAAAAAGAAEAAAADAAAAAAAFAAEAAAADAAAAAAAEAAEAAAADAAAAAAADAAEAAAADAAAAAAD7/wIAAAADAAAAAAD6/wIAAAADAAAAAAD6/wEAAAADAAAAAAD5/wEAAAADAAAAAAD5/wIAAAADAAAAAAD7/wEAAAADAAAAAAD4/wEAAAADAAAAAAD3/wEAAAADAAAAAAD2/wEAAAADAAAAAAD1/wEAAAADAAAAAAD0/wEAAAADAAAAAADz/wEAAAADAAAAAADy/wEAAAADAAAAAADx/wEAAAADAAAAAADx/wIAAAADAAAAAADy/wIAAAADAAAAAADz/wIAAAADAAAAAAD0/wIAAAADAAAAAAD1/wIAAAADAAAAAAD2/wIAAAADAAAAAAD3/wIAAAADAAAAAAD4/wIAAAADAAAAAAAJAAAAAAADAAAAAAAJAP//AAADAAAAAAAKAP//AAADAAAAAAALAP//AAADAAAAAAALAP7/AAADAAAAAAAMAP7/AAADAAAAAAANAP3/AAADAAAAAAAOAP3/AAADAAAAAAAIAAAAAAADAAAAAAAKAAAAAAADAAAAAAALAAAAAAADAAAAAAAMAAAAAAADAAAAAAANAAAAAAADAAAAAAANAP//AAADAAAAAAAOAP//AAADAAAAAAAPAP//AAADAAAAAAAPAP7/AAADAAAAAAAOAP7/AAADAAAAAAANAP7/AAADAAAAAAAMAP//AAADAAAAAAAPAP3/AAADAAAAAAAPAPz/AAADAAAAAAAOAAAAAAADAAAAAAAPAAIAAAADAAAAAAAPAAEAAAADAAAAAAAPAAAAAAADAAAAAAAQAPz/AAADAAAAAAAQAP3/AAADAAAAAAAQAP7/AAADAAAAAAAQAP//AAADAAAAAAAQAAAAAAADAAAAAAAQAAEAAAADAAAAAAAQAAIAAAADAAAAAAAUAPr/AAADAAAAAAAVAPr/AAADAAAAAAAWAPr/AAADAAAAAAAXAPr/AAADAAAAAAAYAPr/AAADAAAAAAAZAPn/AAADAAAAAAAaAPn/AAADAAAAAAAbAPn/AAADAAAAAAAcAPn/AAADAAAAAAAdAPn/AAADAAAAAAAeAPn/AAADAAAAAAAfAPn/AAADAAAAAAAgAPn/AAADAAAAAAAgAPr/AAADAAAAAAAfAPr/AAADAAAAAAAeAPr/AAADAAAAAAAdAPr/AAADAAAAAAAcAPr/AAADAAAAAAAbAPr/AAADAAAAAAAaAPr/AAADAAAAAAAZAPr/AAADAAAAAAAYAPn/AAADAAAAAAAXAPn/AAADAAAAAAAWAPn/AAADAAAAAAAVAPn/AAADAAAAAAAUAPn/AAADAAAAAAA=")
 tile_set = SubResource("TileSet_m5pnw")
 
-[node name="ENemy thing" parent="." instance=ExtResource("3_si8r8")]
+[node name="ENemy thing" parent="." instance=ExtResource("3_u6fc8")]
 position = Vector2(-8, -71)
 move_distance = 100.0
 
 [node name="Death Zone" type="Node2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="Death Zone" groups=["Reset_zone"]]
+[node name="Area2D" type="Area2D" parent="Death Zone" groups=["end level"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Zone/Area2D" groups=["Reset_zone"]]
 position = Vector2(0.25, 263)
@@ -167,8 +171,14 @@ shape = SubResource("RectangleShape2D_v7mb1")
 [node name="End" type="Node2D" parent="."]
 position = Vector2(103, -22)
 
+[node name="Area2D" type="Area2D" parent="End" groups=["end level"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End/Area2D"]
+position = Vector2(0, 13.5)
+shape = SubResource("RectangleShape2D_i51n5")
+
 [node name="Begin" type="Node2D" parent="."]
 position = Vector2(-181, -15)
 
-[node name="BulletSpawner" parent="." instance=ExtResource("4_o1rcq")]
-position = Vector2(-149, -73)
+[node name="BulletSpawner" parent="." instance=ExtResource("4_xkdt2")]
+position = Vector2(-372, -117)
