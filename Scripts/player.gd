@@ -51,4 +51,4 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		self.position = $"../Begin".position
 	elif area.is_in_group("end_level"):
 		var lvl = LevelManager.get_lvl()
-		GlobalValues.levelNumber.append(lvl)
+		GlobalValues.levelNumber.append(int(lvl))
