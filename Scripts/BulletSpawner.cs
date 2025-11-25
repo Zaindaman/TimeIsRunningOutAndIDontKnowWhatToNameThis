@@ -11,7 +11,10 @@ public partial class BulletSpawner : CharacterBody2D
     private void _on_timer_timeout()
     {
         GD.Print("Timer timeout!");
-        Node newInstance = Bullet.Instantiate();
+
+        Node2D newBullet = Bullet.Instantiate<Node2D>();
+
+        GetTree().CurrentScene.AddChild(newBullet);
 
     }
 
