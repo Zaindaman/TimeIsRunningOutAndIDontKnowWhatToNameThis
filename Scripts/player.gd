@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 96
 const GRAVITY = 500
 const JUMP_FORCE = -200
+var health = 1
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

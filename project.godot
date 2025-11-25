@@ -24,6 +24,15 @@ LevelManager="*res://Scripts/LevelManager.gd"
 
 project/assembly_name="TimeIsRunningOutAndIDontKnowWhatToNameThis"
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://Levels/": "yellow",
+"res://Scenes/": "teal",
+"res://Scripts/": "purple"
+}
+
 [global_group]
 
 Reset_zone="if player enters uwse this to get player to check if collison "

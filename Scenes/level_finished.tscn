@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddiqekn5jca4f"]
 
-[ext_resource type="Script" uid="uid://cleokvjusfcrh" path="res://Scenes/level_finished.gd" id="1_2b7xb"]
+[ext_resource type="Script" uid="uid://cleokvjusfcrh" path="res://Scripts/level_finished.gd" id="1_2b7xb"]
 
 [node name="Level_finished" type="Control"]
 layout_mode = 3

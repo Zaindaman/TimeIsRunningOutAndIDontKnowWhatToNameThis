@@ -3,7 +3,8 @@ extends Control
 
 func _on_button_pressed() -> void:
 	var current_lvl = LevelManager.get_lvl()
-	LevelManager.change_level(current_lvl + 1)
+	var next_lvl = int(current_lvl) + 1
+	LevelManager.change_level(str(next_lvl))
 
 
 func _on_button_2_pressed() -> void:
