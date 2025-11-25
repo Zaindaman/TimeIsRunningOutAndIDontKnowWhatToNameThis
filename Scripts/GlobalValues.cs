@@ -8,8 +8,8 @@ public partial class GlobalValues : Node
 	public bool isGameStart { get; set; }
 	public int[] levelNumber;
 
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
 	{
 		ProcessMode = ProcessModeEnum.Always;
 

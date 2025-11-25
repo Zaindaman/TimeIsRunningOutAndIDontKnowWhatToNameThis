@@ -6,6 +6,7 @@ const JUMP_FORCE = -200
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	self.position = $"../Begin".position
 func _physics_process(delta: float) -> void:
 	var dir = get_input_direction()
 	if Input.is_action_just_pressed("CallBulletTime"):
@@ -48,3 +49,6 @@ func get_input_direction() -> Vector2:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Reset_zone"):
 		self.position = $"../Begin".position
+	elif area.is_in_group("end_level"):
+		var lvl = LevelManager.get_lvl()
+		GlobalValues.levelNumber.append(lvl)
