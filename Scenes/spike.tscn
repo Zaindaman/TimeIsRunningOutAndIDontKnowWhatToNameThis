@@ -1,10 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://xqyrtmn0rbmj"]
+[gd_scene load_steps=9 format=3 uid="uid://xqyrtmn0rbmj"]
 
 [ext_resource type="Texture2D" uid="uid://bg4yd5lrm58en" path="res://icon.svg" id="1_cdj5a"]
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_bjemy"]
-custom_solver_bias = 0.03
-points = PackedVector2Array(10, 0, -10, 0, 0, -20)
+[ext_resource type="Texture2D" uid="uid://bt2m0deuipeqp" path="res://Assets/spikes.png" id="2_1hotg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hotg"]
 atlas = ExtResource("1_cdj5a")
@@ -17,6 +14,10 @@ region = Rect2(32, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fhxds"]
 atlas = ExtResource("1_cdj5a")
 region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khj5f"]
+atlas = ExtResource("2_1hotg")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bjemy"]
 animations = [{
@@ -33,15 +34,33 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khj5f")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
-[node name="Spike" type="CharacterBody2D"]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_bjemy"]
+custom_solver_bias = 0.03
+points = PackedVector2Array(10, 0, -10, 0, -5, -15, 5, -15)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("ConvexPolygonShape2D_bjemy")
+[node name="Spike" type="CharacterBody2D" groups=["enviromental_obi"]]
+collision_layer = 2
+collision_mask = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.49999976, -7.7499995)
-scale = Vector2(0.21875001, 0.45312497)
+texture_filter = 1
+position = Vector2(-0.50000024, -7.7499995)
 sprite_frames = SubResource("SpriteFrames_bjemy")
-frame_progress = 0.692345
+animation = &"new_animation"
+
+[node name="Area2D" type="Area2D" parent="." groups=["enviromental_obi"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["enviromental_obi"]]
+shape = SubResource("ConvexPolygonShape2D_bjemy")

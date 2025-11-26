@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqyb8653upbmr"]
+[gd_scene load_steps=9 format=3 uid="uid://bqyb8653upbmr"]
 
 [ext_resource type="Script" uid="uid://c3li62bk0rfmx" path="res://Scripts/enemy_basic.gd" id="1_cbn6x"]
 [ext_resource type="Texture2D" uid="uid://bg4yd5lrm58en" path="res://icon.svg" id="2_jeixo"]
@@ -39,8 +39,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7h6nv"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_gf0ht"]
 
 [node name="Enemy_basic" type="CharacterBody2D"]
@@ -49,10 +47,13 @@ script = ExtResource("1_cbn6x")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jeixo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_7h6nv")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 8)
+polygon = PackedVector2Array(-6, -18, -6, 3, 5, 3, 5, -18, 16, -26, -16, -26)
 
 [node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_gf0ht")

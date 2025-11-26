@@ -4,7 +4,7 @@ const SPEED = 96
 const GRAVITY = 500
 const JUMP_FORCE = -200
 var health = 1
-
+var is_on_jumpable
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	self.position = $"../Begin".position
@@ -55,4 +55,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		GlobalValues.levelNumber.append(int(lvl))
 		get_tree().change_scene_to_file("res://Scenes/level_finished.tscn")
 	elif area.is_in_group("enemy"):
+		self.position = $"../Begin".position
+	elif area.is_in_group("enviromental_obi"):
 		self.position = $"../Begin".position
