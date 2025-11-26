@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://duxcn08pyk2mp"]
+[gd_scene load_steps=13 format=4 uid="uid://duxcn08pyk2mp"]
 
 [ext_resource type="PackedScene" uid="uid://78c38ipulmfu" path="res://Scenes/player.tscn" id="1_6lcx4"]
 [ext_resource type="Texture2D" uid="uid://c4skymh460tqt" path="res://Assets/new tilemap.png" id="2_7g0wd"]
-[ext_resource type="PackedScene" uid="uid://sdc63bs26c0b" path="res://Scenes/e_nemy_thing.tscn" id="3_u6fc8"]
+[ext_resource type="PackedScene" path="res://Scenes/e_nemy_thing.tscn" id="3_u6fc8"]
 [ext_resource type="PackedScene" uid="uid://bqyb8653upbmr" path="res://Scenes/enemy_basic.tscn" id="4_6lcx4"]
-[ext_resource type="PackedScene" path="res://Scenes/boomerang.tscn" id="5_7g0wd"]
+[ext_resource type="PackedScene" uid="uid://bi3ridtlx6gui" path="res://Scenes/boomerang.tscn" id="5_7g0wd"]
 [ext_resource type="PackedScene" uid="uid://b468i0i6ery7l" path="res://Scenes/bullet_spawner.tscn" id="6_u6fc8"]
+[ext_resource type="PackedScene" uid="uid://cetyvsj3t1o4d" path="res://Scenes/laser.tscn" id="7_xkdt2"]
+[ext_resource type="PackedScene" uid="uid://buny7ajxygh3c" path="res://Scenes/LaserButton.tscn" id="8_ro3tw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7mb1"]
 texture = ExtResource("2_7g0wd")
@@ -174,7 +176,7 @@ position = Vector2(0.25, 263)
 shape = SubResource("RectangleShape2D_v7mb1")
 
 [node name="End" type="Node2D" parent="."]
-position = Vector2(103, -22)
+position = Vector2(-211, -21)
 
 [node name="Area2D" type="Area2D" parent="End" groups=["end level", "end_level"]]
 
@@ -183,10 +185,16 @@ position = Vector2(0, 13.5)
 shape = SubResource("RectangleShape2D_i51n5")
 
 [node name="Begin" type="Node2D" parent="."]
-position = Vector2(-181, -15)
+position = Vector2(1, -19)
 
 [node name="Boomerang" parent="." instance=ExtResource("5_7g0wd")]
 position = Vector2(-185, -59)
 
 [node name="BulletSpawner" parent="." instance=ExtResource("6_u6fc8")]
 position = Vector2(462, -49)
+
+[node name="Laser" parent="." instance=ExtResource("7_xkdt2")]
+position = Vector2(33, -56)
+
+[node name="Node2D" parent="." instance=ExtResource("8_ro3tw")]
+position = Vector2(231, -57)

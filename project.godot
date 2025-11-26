@@ -39,6 +39,7 @@ Reset_zone="if player enters uwse this to get player to check if collison "
 end_level=""
 enemy=""
 enviromental_obi=""
+activator=""
 
 [input]
 

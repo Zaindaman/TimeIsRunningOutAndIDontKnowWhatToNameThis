@@ -51,7 +51,6 @@ script = ExtResource("1_cbn6x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jeixo")
-animation = &"new_animation"
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 8)
