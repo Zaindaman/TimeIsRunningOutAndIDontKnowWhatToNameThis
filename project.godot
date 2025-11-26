@@ -44,6 +44,7 @@ end_level=""
 enemy=""
 enviromental_obi=""
 enemybounce=""
+activator=""
 
 [input]
 

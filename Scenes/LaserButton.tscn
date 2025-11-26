@@ -28,7 +28,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jk0vq"]
 size = Vector2(9, 14)
 
-[node name="Node2D" type="Node2D"]
+[node name="LaserButton" type="CharacterBody2D" groups=["activator"]]
 script = ExtResource("1_r8jrj")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -41,4 +41,6 @@ sprite_frames = SubResource("SpriteFrames_ebg6c")
 position = Vector2(3.5, 0)
 shape = SubResource("RectangleShape2D_jk0vq")
 
-[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 0)
+shape = SubResource("RectangleShape2D_jk0vq")
