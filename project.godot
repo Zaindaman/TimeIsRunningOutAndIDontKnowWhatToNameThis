@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="TimeIsRunningOutAndIDontKnowWhatToNameThis"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://b4w2enwy4mxa"
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -37,6 +38,7 @@ folder_colors={
 Reset_zone="if player enters uwse this to get player to check if collison "
 end_level=""
 enemy=""
+enviromental_obi=""
 
 [input]
 
@@ -63,5 +65,10 @@ RIGHT={
 CallBulletTime={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+Reset={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
 ]
 }

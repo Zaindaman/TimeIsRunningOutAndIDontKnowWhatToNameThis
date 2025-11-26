@@ -13,5 +13,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Reset_zone"):
+	if area.is_in_group("Reset_zone") or area.is_in_group("enviromental_obi"):
 		queue_free()
