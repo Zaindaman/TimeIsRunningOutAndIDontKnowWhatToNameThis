@@ -15,19 +15,4 @@ public partial class GlobalValues : Node
 
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		if(isBulletTime)
-		{
-
-			GetTree().Paused = true;
-		
-		}
-		else
-		{
-
-			GetTree().Paused = false;
-		}
-	}
 }

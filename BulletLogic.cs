@@ -17,9 +17,6 @@ public partial class BulletLogic : CharacterBody2D
         {
             _isInversion = value;
 
-            // Change processing mode based on inversion
-            ProcessMode = _isInversion ? ProcessModeEnum.Always : ProcessModeEnum.Pausable;
-            GD.Print($"{Name} inversion set to {_isInversion}");
         }
     }
 
@@ -31,8 +28,16 @@ public partial class BulletLogic : CharacterBody2D
 
     public override void _Process(double delta)
     {
-        // Move in the direction inherited from spawner
-        Vector2 forward = Transform.X * _direction;
-        Position += forward * Speed * (float)delta;
+        if (IsInversion)
+        {
+            Vector2 forward = Vector2.Zero; // bullet doesn’t move
+        }
+        else
+        {
+            Vector2 forward = Transform.X * _direction;
+            Position += forward * Speed * (float)delta;
+        }
+
+
     }
 }
