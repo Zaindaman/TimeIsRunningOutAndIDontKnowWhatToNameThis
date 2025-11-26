@@ -1,8 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://xqyrtmn0rbmj"]
+[gd_scene load_steps=7 format=3 uid="uid://xqyrtmn0rbmj"]
+
+[ext_resource type="Texture2D" uid="uid://bg4yd5lrm58en" path="res://icon.svg" id="1_cdj5a"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_bjemy"]
 custom_solver_bias = 0.03
 points = PackedVector2Array(10, 0, -10, 0, 0, -20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hotg"]
+atlas = ExtResource("1_cdj5a")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mnih"]
+atlas = ExtResource("1_cdj5a")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhxds"]
+atlas = ExtResource("1_cdj5a")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjemy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hotg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mnih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhxds")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Spike" type="CharacterBody2D"]
 
@@ -10,3 +41,7 @@ points = PackedVector2Array(10, 0, -10, 0, 0, -20)
 shape = SubResource("ConvexPolygonShape2D_bjemy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.49999976, -7.7499995)
+scale = Vector2(0.21875001, 0.45312497)
+sprite_frames = SubResource("SpriteFrames_bjemy")
+frame_progress = 0.692345
