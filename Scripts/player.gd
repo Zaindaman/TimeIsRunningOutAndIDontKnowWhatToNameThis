@@ -5,11 +5,14 @@ const GRAVITY = 500
 const JUMP_FORCE = -200
 var health = 1
 var is_on_jumpable
+@export var chapter2 : bool = false
+var time_remaining : float = 5
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	self.position = $"../Begin".position
 func _physics_process(delta: float) -> void:
 	var dir = get_input_direction()
+	
 	if Input.is_action_just_pressed("CallBulletTime"):
 		if GlobalValues.isBulletTime == true:
 			GlobalValues.isBulletTime = false

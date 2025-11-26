@@ -54,5 +54,155 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "QuitGame"
 
+[node name="Lvl Selector" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 114.0
+offset_top = 209.0
+offset_right = 1059.0
+offset_bottom = 583.0
+
+[node name="Button1" type="Button" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 23.0
+offset_right = 97.0
+offset_bottom = 98.0
+text = "LVL 1"
+metadata/_edit_group_ = true
+
+[node name="Button11" type="Button" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 23.0
+offset_right = 617.0
+offset_bottom = 98.0
+text = "Test lvl 1"
+metadata/_edit_group_ = true
+
+[node name="Button12" type="Button" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 103.0
+offset_right = 618.0
+offset_bottom = 178.0
+text = "Test lvl 2"
+metadata/_edit_group_ = true
+
+[node name="Button2" type="Button" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 23.0
+offset_right = 185.0
+offset_bottom = 98.0
+text = "LVL 2"
+metadata/_edit_group_ = true
+
+[node name="Button3" type="Button" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 23.0
+offset_right = 273.0
+offset_bottom = 98.0
+text = "LVL 3"
+metadata/_edit_group_ = true
+
+[node name="Button4" type="Button" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 23.0
+offset_right = 361.0
+offset_bottom = 98.0
+text = "LVL 4"
+metadata/_edit_group_ = true
+
+[node name="Button5" type="Button" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 143.0
+offset_right = 97.0
+offset_bottom = 218.0
+text = "LVL 6"
+metadata/_edit_group_ = true
+
+[node name="Button6" type="Button" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 143.0
+offset_right = 185.0
+offset_bottom = 218.0
+text = "LVL 7"
+metadata/_edit_group_ = true
+
+[node name="Button7" type="Button" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 143.0
+offset_right = 273.0
+offset_bottom = 218.0
+text = "LVL 8"
+metadata/_edit_group_ = true
+
+[node name="Button8" type="Button" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 143.0
+offset_right = 361.0
+offset_bottom = 218.0
+text = "LVL 9"
+metadata/_edit_group_ = true
+
+[node name="Button9" type="Button" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 23.0
+offset_right = 449.0
+offset_bottom = 98.0
+text = "LVL 5
+"
+metadata/_edit_group_ = true
+
+[node name="Button10" type="Button" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 143.0
+offset_right = 449.0
+offset_bottom = 218.0
+text = "LVL 10
+"
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -1.0
+offset_right = 446.0
+offset_bottom = 22.0
+text = "Chapter 1"
+horizontal_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Label2" type="Label" parent="Lvl Selector"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 120.0
+offset_right = 446.0
+offset_bottom = 143.0
+text = "Chapter 2"
+horizontal_alignment = 1
+metadata/_edit_group_ = true
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Lvl Selector/Button1" to="." method="_on_button_lvl_pressed" binds= ["1"]]
+[connection signal="pressed" from="Lvl Selector/Button11" to="." method="_on_button_lvl_pressed" binds= ["0"]]
+[connection signal="pressed" from="Lvl Selector/Button12" to="." method="_on_button_lvl_pressed" binds= ["0"]]
+[connection signal="pressed" from="Lvl Selector/Button2" to="." method="_on_button_lvl_pressed" binds= ["2"]]
+[connection signal="pressed" from="Lvl Selector/Button3" to="." method="_on_button_lvl_pressed" binds= ["3"]]
+[connection signal="pressed" from="Lvl Selector/Button4" to="." method="_on_button_lvl_pressed" binds= ["4"]]
+[connection signal="pressed" from="Lvl Selector/Button5" to="." method="_on_button_lvl_pressed" binds= ["6"]]
+[connection signal="pressed" from="Lvl Selector/Button6" to="." method="_on_button_6_pressed" binds= ["7"]]
+[connection signal="pressed" from="Lvl Selector/Button7" to="." method="_on_button_lvl_pressed" binds= ["8"]]
+[connection signal="pressed" from="Lvl Selector/Button8" to="." method="_on_button_lvl_pressed" binds= ["9"]]
+[connection signal="pressed" from="Lvl Selector/Button9" to="." method="_on_button_lvl_pressed" binds= ["5"]]
+[connection signal="pressed" from="Lvl Selector/Button10" to="." method="_on_button_lvl_pressed" binds= ["10"]]
