@@ -7,12 +7,19 @@ extends CharacterBody2D
 @export var speed : int = 64
 @export var gravity : float = 500
 
-var bounced 
-@export var isInversion : bool : set = is_inversion
-	
+var bounced
+
+var _is_inversion := false
+
+@export var isInversion: bool:
+	get:
+		return _is_inversion
+	set(value):
+		_is_inversion = value
+		print("is inverted changed to: ", value)
+
 @export var inverted = false
-func is_inversion(value):
-	print("is inverted changed to: ",value)
+
 func _ready() -> void:
 	if inverted == true:
 		rotation = deg_to_rad(180)
@@ -23,6 +30,8 @@ func _ready() -> void:
 		collision_shape_2d3.rotation = deg_to_rad(180)
 		collision_shape_2d3.position = Vector2(0,-8)
 	print("spawned")
+	
+	
 func _physics_process(delta: float) -> void:
 	# Base movement direction
 	var dir
