@@ -57,7 +57,8 @@ radius = 9.0
 height = 32.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3smsa"]
-height = 34.0
+radius = 11.0
+height = 36.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
 atlas = ExtResource("7_3smsa")
@@ -112,13 +113,15 @@ animations = [{
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 process_mode = 3
 script = ExtResource("1_v0iea")
-chapter2 = null
-max_time = null
-time_remaining = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3
 zoom = Vector2(3.375, 3.375)
+
+[node name="HoldPosition" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(16, -5.684342e-14)
+scale = Vector2(0.99999994, 0.99999994)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 process_mode = 3
@@ -127,7 +130,7 @@ position = Vector2(-1.4901161e-06, -5.9604645e-07)
 scale = Vector2(1.1249999, 1.1249999)
 sprite_frames = SubResource("SpriteFrames_x3wgy")
 animation = &"stand"
-frame_progress = 0.025912719
+frame_progress = 0.31423953
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 process_mode = 3
@@ -164,4 +167,5 @@ frame = 5
 frame_progress = 1.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
