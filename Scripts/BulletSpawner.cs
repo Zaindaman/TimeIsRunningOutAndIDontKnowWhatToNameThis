@@ -52,12 +52,12 @@ public partial class BulletSpawner : CharacterBody2D
         _myTimer.Start();
     }
 
-    private void _on_timer_timeout()
-    {
-        if (Bullet == null)
-            return;
+	private void _on_timer_timeout()
+	{
+		if (Bullet == null)
+			return;
 
-        BulletLogic newBullet = Bullet.Instantiate<BulletLogic>();
+		BulletLogic newBullet = Bullet.Instantiate<BulletLogic>();
 
         // 1. Get the direction vectors. Transform.X is the local forward vector, 
         // and Transform.Y is the local up/down vector.
@@ -80,7 +80,7 @@ public partial class BulletSpawner : CharacterBody2D
         // The rotation handles the facing direction.
         newBullet.SetDirection(1f);
 
-        // Add bullet to the current scene
-        GetTree().CurrentScene.AddChild(newBullet);
-    }
+		// Add bullet to the current scene
+		GetTree().CurrentScene.AddChild(newBullet);
+	}
 }
