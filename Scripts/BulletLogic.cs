@@ -12,6 +12,7 @@ public partial class BulletLogic : CharacterBody2D
 
     public override void _Ready()
     {
+        Area2D myArea2D = GetNode<Area2D>("Area2D");
         globalValues = GetNode<GlobalValues>("/root/GlobalValues");
     }
 
@@ -28,10 +29,15 @@ public partial class BulletLogic : CharacterBody2D
 
         if (!globalValues.isBulletTime || (globalValues.isBulletTime && isInversion))
         {
+            bulletArea2D.Monitorable = true;
+
             // Move in the bullet's local X, multiplied by direction
             forward = Transform.X.Normalized() * _direction;
         }
-
+        else
+        {
+            bulletArea2D.Monitorable = false;
+        }
         Position += forward * Speed * (float)delta;
     }
 }
