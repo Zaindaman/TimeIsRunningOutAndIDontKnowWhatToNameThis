@@ -6,6 +6,42 @@ public partial class BulletSpawner : CharacterBody2D
     [Export] public PackedScene Bullet;
     [Export] public float offsetDistance = 100f;
 
+    private GlobalValues globalValues;
+
+    private Timer _myTimer;
+
+    public void _Ready()
+    {
+        globalValues = GetNode<GlobalValues>("/root/GlobalValues");
+
+
+        _myTimer = GetNode<Timer>("MyTimerNode"); // Replace "MyTimerNode" with your Timer's path
+        _myTimer.Timeout += _on_timer_timeout; // Connect the Timeout signal
+    }
+
+    public void _process()
+    {
+        if (globalValues.isBulletTime)
+        {
+            PauseTimer();
+        }
+        else
+        {
+            UnpauseTimer();
+        }
+    }
+
+    public void PauseTimer()
+    {
+        _myTimer.Paused = true;
+    }
+
+    public void UnpauseTimer()
+    {
+        _myTimer.Paused = false;
+    }
+
+       
     private void _on_timer_timeout()
     {
         if (Bullet == null)
