@@ -20,4 +20,5 @@ func _physics_process(delta):
 			emit_signal("damage")
 	else:
 		line.points = [Vector2.ZERO, ray.target_position]
+
 		

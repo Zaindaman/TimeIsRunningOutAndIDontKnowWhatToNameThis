@@ -7,11 +7,18 @@ var health = 1
 var is_on_jumpable
 
 @export var chapter2 : bool = false
-var time_remaining : float = 5
+@export var max_time : float
+@export var time_remaining : float = 5
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	self.position = $"../Begin".position
+	if chapter2:
+		$TextureProgressBar2.visible = false
+		$TextureProgressBar2.max_value = max_time
 func _physics_process(delta: float) -> void:
+	if chapter2 and GlobalValues.isBulletTime == true:
+		time_remaining -= delta
+		$TextureProgressBar2.value = time_remaining
 	if Input.is_action_just_pressed("Reset"):
 		var lvl = LevelManager.get_lvl()
 		LevelManager.change_level(lvl)
