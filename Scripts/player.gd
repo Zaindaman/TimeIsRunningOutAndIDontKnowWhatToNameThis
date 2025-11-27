@@ -71,3 +71,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print("bounced")
 		velocity.y = JUMP_FORCE + -100
 	
+
+
+func _on_laser_damage() -> void:
+	pass # Replace with function body.

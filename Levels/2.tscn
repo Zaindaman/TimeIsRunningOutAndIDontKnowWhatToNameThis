@@ -180,4 +180,5 @@ position = Vector2(4, -26)
 position = Vector2(98, -9)
 
 [connection signal="closedoor" from="Laser" to="Node2D" method="_on_laser_closedoor"]
+[connection signal="damage" from="Laser" to="Player" method="_on_laser_damage"]
 [connection signal="opendoor" from="Laser" to="Node2D" method="_on_laser_opendoor"]
