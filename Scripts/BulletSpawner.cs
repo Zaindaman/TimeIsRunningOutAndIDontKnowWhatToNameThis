@@ -3,9 +3,9 @@ using System;
 
 public partial class BulletSpawner : CharacterBody2D
 {
-    [Export] public PackedScene Bullet;
-    [Export] public float xOffsetDistance = 100f;
-    [Export] public float yOffsetDistance = 0f;
+	[Export] public PackedScene Bullet;
+	[Export] public float xOffsetDistance = 100f;
+	[Export] public float yOffsetDistance = 0f;
 
 	private GlobalValues globalValues;
 	private Timer _myTimer;
@@ -61,9 +61,9 @@ public partial class BulletSpawner : CharacterBody2D
 		// The key to straight movement: set the bullet's rotation
         newBullet.GlobalRotation = GlobalRotation;
 
-        // SetDirection is now vestigial but called for completeness
+		// SetDirection is now vestigial but called for completeness
         newBullet.SetDirection(1f);
 
-        GetTree().CurrentScene.AddChild(newBullet);
-    }
+		GetTree().CurrentScene.AddChild(newBullet);
+	}
 }

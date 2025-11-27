@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oduel"]
 size = Vector2(96, 48)
 
-[node name="Bullet" type="CharacterBody2D"]
+[node name="Bullet" type="CharacterBody2D" groups=["enemybounce"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_oduel")
 

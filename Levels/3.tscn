@@ -1,3 +1,97 @@
-[gd_scene format=3 uid="uid://de78axtygfsov"]
+[gd_scene load_steps=14 format=4 uid="uid://de78axtygfsov"]
+
+[ext_resource type="TileSet" uid="uid://dch0p1c1hspwa" path="res://Assets/Tilemap.tres" id="1_0ah7s"]
+[ext_resource type="PackedScene" uid="uid://78c38ipulmfu" path="res://Scenes/player.tscn" id="2_75qor"]
+[ext_resource type="Texture2D" uid="uid://qfa6318eia8m" path="res://Assets/flag.png" id="4_4v3gu"]
+[ext_resource type="PackedScene" uid="uid://8fp84xjwwcre" path="res://Scenes/ButtonActivatedDoor.tscn" id="5_a8pxq"]
+[ext_resource type="PackedScene" uid="uid://cetyvsj3t1o4d" path="res://Scenes/laser.tscn" id="6_75qor"]
+[ext_resource type="PackedScene" uid="uid://bi3ridtlx6gui" path="res://Scenes/boomerang.tscn" id="6_a8pxq"]
+[ext_resource type="PackedScene" uid="uid://buny7ajxygh3c" path="res://Scenes/LaserButton.tscn" id="7_udn2r"]
+[ext_resource type="Texture2D" uid="uid://dt5yx7j0sdi7a" path="res://Assets/Atlas.png" id="9_c8tbp"]
+[ext_resource type="Script" uid="uid://c6fy6mlhua00m" path="res://Scripts/InversionFieldLogic.cs" id="10_udn2r"]
+[ext_resource type="PackedScene" uid="uid://bqyb8653upbmr" path="res://Scenes/enemy_basic.tscn" id="11_c8tbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udn2r"]
+size = Vector2(20, 50.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18150"]
+atlas = ExtResource("9_c8tbp")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8pxq"]
+size = Vector2(95, 55)
 
 [node name="1" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAUAAUAAQAGAAAAAAATAAUAAQAGAAAAAAASAAUAAQAGAAAAAAARAAUAAQAGAAAAAAAQAAUAAQAGAAAAAAAPAAUAAQAGAAAAAAAOAAUAAQAGAAAAAAANAAUAAQAGAAAAAAAMAAUAAQAGAAAAAAALAAUAAQAGAAAAAAAZAAUAAQAGAAAAAAAaAAUAAQAGAAAAAAAbAAUAAQAHAAIAAAAYAAUAAQAGAAAAAAAKAAUAAQAGAAAAAAAAAAUAAQAGAAAAAAABAAUAAQAGAAAAAAACAAUAAQAGAAAAAAADAAUAAQAGAAAAAAAEAAUAAQAGAAAAAAAFAAUAAQAGAAAAAAAGAAUAAQAGAAAAAAAHAAUAAQAGAAAAAAAIAAUAAQAGAAAAAAAJAAUAAQAGAAAAAAAVAAUAAQAGAAAAAAAWAAUAAQAGAAAAAAAXAAUAAQAGAAAAAAD//wQAAQAFAAEAAAD//wMAAQAFAAEAAAD//wIAAQAFAAEAAAD//wEAAQAFAAEAAAD//wAAAQAFAAEAAAD/////AQAFAAEAAAD///7/AQAFAAEAAAD///3/AQAFAAEAAAD///z/AQAFAAEAAAD///v/AQAFAAEAAAD///r/AQAFAAEAAAAAAPn/AQAGAAIAAAABAPn/AQAGAAIAAAACAPn/AQAGAAIAAAADAPn/AQAGAAIAAAAEAPn/AQAGAAIAAAAFAPn/AQAGAAIAAAAGAPn/AQAGAAIAAAAHAPn/AQAGAAIAAAAIAPn/AQAGAAIAAAAJAPn/AQAGAAIAAAAKAPn/AQAGAAIAAAALAPn/AQAGAAIAAAAMAPn/AQAGAAIAAAANAPn/AQAGAAIAAAAOAPn/AQAGAAIAAAAPAPn/AQAGAAIAAAAQAPn/AQAGAAIAAAARAPn/AQAGAAIAAAASAPn/AQAGAAIAAAATAPn/AQAGAAIAAAAUAPn/AQAGAAIAAAAVAPn/AQAGAAIAAAAWAPn/AQAGAAIAAAAXAPn/AQAGAAIAAAAYAPn/AQAGAAIAAAAZAPn/AQAGAAIAAAAaAPn/AQAGAAIAAAAbAPr/AQAFAAEAAAAbAPv/AQAFAAEAAAAbAPz/AQAFAAEAAAAbAP3/AQAFAAEAAAAbAP7/AQAFAAEAAAAbAP//AQAFAAEAAAAbAAAAAQAFAAEAAAAbAAEAAQAFAAEAAAAbAAIAAQAFAAEAAAAbAAMAAQAFAAEAAAAbAAQAAQAFAAEAAAD//wUAAQAFAAIAAAD///n/AQAFAAAAAAAbAPn/AQAHAAAAAAAAAP3/AQADAAMAAAABAP3/AQADAAMAAAACAP3/AQADAAMAAAACAPr/AQAHAAEAAAADAP3/AQADAAMAAAACAPv/AQADAAMAAAAEAP7/AQADAAMAAAAFAP//AQADAAMAAAATAAQAAQAGAAEAAAA=")
+tile_set = ExtResource("1_0ah7s")
+
+[node name="Player" parent="." instance=ExtResource("2_75qor")]
+position = Vector2(251, 26)
+
+[node name="Begin" type="Node2D" parent="."]
+position = Vector2(187, 65)
+
+[node name="End" type="Node2D" parent="."]
+position = Vector2(434, 63)
+
+[node name="Area2D" type="Area2D" parent="End"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End/Area2D"]
+position = Vector2(-424, -135.25)
+shape = SubResource("RectangleShape2D_udn2r")
+
+[node name="Sprite2D" type="Sprite2D" parent="End"]
+
+[node name="Flag" type="Sprite2D" parent="End"]
+position = Vector2(-424, -126)
+texture = ExtResource("4_4v3gu")
+
+[node name="ButtonActivatedDoor" parent="." instance=ExtResource("5_a8pxq")]
+position = Vector2(40, -63)
+
+[node name="Boomerang" parent="." groups=["enemy"] instance=ExtResource("6_a8pxq")]
+position = Vector2(279, 12)
+XMovement = true
+CenterDistance = 15
+MovementAccelRate = 6
+
+[node name="LaserButton" parent="." instance=ExtResource("7_udn2r")]
+position = Vector2(299, 74)
+rotation = 1.5707964
+collision_layer = 4
+collision_mask = 0
+
+[node name="Laser" parent="." instance=ExtResource("6_75qor")]
+position = Vector2(299, -86)
+
+[node name="RayCast2D" parent="Laser" index="1"]
+position = Vector2(0, 1)
+target_position = Vector2(0, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Laser"]
+position = Vector2(0, -3)
+rotation = 3.1415927
+texture = SubResource("AtlasTexture_18150")
+
+[node name="Enemy_basic" parent="." instance=ExtResource("11_c8tbp")]
+position = Vector2(383, 46)
+inverted = true
+
+[node name="InversionField" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("10_udn2r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InversionField"]
+position = Vector2(299.5, 54.5)
+shape = SubResource("RectangleShape2D_a8pxq")
+
+[connection signal="closedoor" from="Laser" to="ButtonActivatedDoor" method="_on_laser_closedoor"]
+[connection signal="damage" from="Laser" to="Player" method="_on_laser_damage"]
+[connection signal="enemydamage" from="Laser" to="Enemy_basic" method="_on_laser_enemydamage"]
+[connection signal="opendoor" from="Laser" to="ButtonActivatedDoor" method="_on_laser_opendoor"]
+
+[editable path="Laser"]

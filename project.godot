@@ -53,6 +53,7 @@ activator=""
 player=""
 Pickup=""
 box=""
+enemy_laser=""
 
 [input]
 

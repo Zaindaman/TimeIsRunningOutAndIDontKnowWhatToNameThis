@@ -5,7 +5,7 @@ extends Node2D
 signal opendoor
 signal closedoor
 signal damage
-
+signal enemydamage
 func _physics_process(delta):
 	ray.force_raycast_update()
 	if ray.is_colliding():
@@ -18,6 +18,8 @@ func _physics_process(delta):
 			emit_signal("closedoor")
 		if collider.is_in_group("player"):
 			emit_signal("damage")
+		if collider.is_in_group("enemy_laser"):
+			emit_signal("enemydamage")
 	else:
 		line.points = [Vector2.ZERO, ray.target_position]
 

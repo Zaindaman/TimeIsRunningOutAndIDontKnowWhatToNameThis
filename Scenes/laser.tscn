@@ -13,3 +13,4 @@ default_color = Color(1, 0.050980393, 0, 1)
 
 [node name="RayCast2D" type="RayCast2D" parent="." groups=["activator", "enviromental_obi"]]
 target_position = Vector2(1000, 0)
+collision_mask = 5

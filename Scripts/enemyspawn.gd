@@ -20,7 +20,5 @@ func _on_timer_timeout():
 	get_parent().add_child(instance)
 	instance.global_position = global_position
 	if rotation != 0:
-		instance.rotation = rotation
-		instance.animated_sprite_2d.flip_v = true
-		
+		instance.inverted = true
 	$"Timer".start(TimeBetweenSpawn)

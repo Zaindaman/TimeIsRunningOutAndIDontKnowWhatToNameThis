@@ -53,12 +53,10 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3wgy"]
-radius = 9.0
-height = 32.0
+radius = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3smsa"]
-radius = 11.0
-height = 36.0
+height = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
 atlas = ExtResource("7_3smsa")
@@ -127,7 +125,6 @@ scale = Vector2(0.99999994, 0.99999994)
 process_mode = 3
 texture_filter = 1
 position = Vector2(-1.4901161e-06, -5.9604645e-07)
-scale = Vector2(1.1249999, 1.1249999)
 sprite_frames = SubResource("SpriteFrames_x3wgy")
 animation = &"stand"
 frame_progress = 0.31423953
