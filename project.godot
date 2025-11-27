@@ -45,6 +45,7 @@ enemy=""
 enviromental_obi=""
 enemybounce=""
 activator=""
+player=""
 
 [input]
 
