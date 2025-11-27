@@ -1,21 +1,12 @@
-extends CharacterBody2D
-var gravity = 500
+extends RigidBody2D
 var isInversion : bool
-
-func _ready() -> void:
-	pass # Replace with function body.
-
 
 
 func _process(delta: float) -> void:
 	if isInversion and GlobalValues.isBulletTime:
-		if not is_on_floor():
-			velocity.y += gravity * delta
-		move_and_slide()
+		gravity_scale = 1
 		return
-	if not is_on_floor():
-		velocity.y += gravity * delta
+		gravity_scale = 1
 	if GlobalValues.isBulletTime:
-		velocity = Vector2.ZERO
+		gravity_scale = 0
 		return
-	move_and_slide()
