@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://78c38ipulmfu"]
+[gd_scene load_steps=14 format=3 uid="uid://78c38ipulmfu"]
 
 [ext_resource type="Script" uid="uid://c02jhjdre4c72" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://bg4yd5lrm58en" path="res://icon.svg" id="2_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ij71rjplmwss" path="res://Assets/progress back.png" id="3_fkybt"]
+[ext_resource type="Texture2D" uid="uid://dtl76k4rgd67n" path="res://Assets/player.png" id="3_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://dgse7d47p5htg" path="res://Assets/progress outline.png" id="4_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://bro2qgni0aqux" path="res://Assets/progress fill.png" id="5_3smsa"]
 
@@ -17,6 +18,10 @@ region = Rect2(64, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
 atlas = ExtResource("2_cvnsp")
 region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("3_x3wgy")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x3wgy"]
 animations = [{
@@ -34,7 +39,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}],
 "loop": true,
 "name": &"new_animation",
 "speed": 5.0
@@ -56,7 +64,9 @@ zoom = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 process_mode = 3
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_x3wgy")
+animation = &"new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 process_mode = 3
