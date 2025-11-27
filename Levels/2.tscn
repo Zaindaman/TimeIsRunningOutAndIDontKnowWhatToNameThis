@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://dwbkwn1hhlefl"]
+[gd_scene load_steps=7 format=4 uid="uid://dwbkwn1hhlefl"]
 
 [ext_resource type="TileSet" uid="uid://dch0p1c1hspwa" path="res://Assets/Tilemap.tres" id="1_qpttu"]
 [ext_resource type="Script" uid="uid://8qk8l7rqyi42" path="res://Scripts/enemyspawn.gd" id="4_txyub"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cyk8m8oau8x47" path="res://Assets/enemy spawner.png" id="5_qpttu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y063p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y063p"]
+size = Vector2(48, 12)
 
 [node name="1" type="Node2D"]
 position = Vector2(40, 12)
@@ -17,9 +20,6 @@ tile_set = ExtResource("1_qpttu")
 
 [node name="Player" parent="." instance=ExtResource("4_y063p")]
 position = Vector2(-55, 31)
-chapter2 = false
-max_time = 0.0
-time_remaining = 5.0
 
 [node name="Begin" type="Node2D" parent="."]
 position = Vector2(-56, 35)
@@ -43,5 +43,11 @@ texture = ExtResource("5_qpttu")
 flip_v = true
 
 [node name="Timer" type="Timer" parent="Node2D"]
+
+[node name="Deathzone" type="Area2D" parent="." groups=["enviromental_obi"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2(24, 58)
+shape = SubResource("RectangleShape2D_y063p")
 
 [connection signal="timeout" from="Node2D/Timer" to="Node2D" method="_on_timer_timeout"]

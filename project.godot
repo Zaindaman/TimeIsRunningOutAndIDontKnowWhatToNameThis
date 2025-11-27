@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 GlobalValues="*res://Scripts/GlobalValues.cs"
 LevelManager="*res://Scripts/LevelManager.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+
 [dotnet]
 
 project/assembly_name="TimeIsRunningOutAndIDontKnowWhatToNameThis"

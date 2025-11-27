@@ -94,9 +94,11 @@ func play_animation(dir):
 	if dir.x >= 0.5:
 		$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play("walk")
+		%HoldPosition.position = Vector2(16,0)
 	elif dir.x <= -0.5:
 		$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play("walk")
+		%HoldPosition.position = Vector2(-16,0)
 	else: 
 		$AnimatedSprite2D.play("stand")
 
@@ -162,6 +164,7 @@ func drop_box():
 	held_box = null
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("area entered player")
 	if area.is_in_group("Reset_zone"):
 		var lvl = LevelManager.get_lvl()
 		LevelManager.change_level(lvl)
@@ -185,6 +188,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		$TextureProgressBar2.value = time_remaining
 		area.get_parent().queue_free()
 	elif area.is_in_group("box"):
+		print("box in range")
 		# NEW: When a box is nearby, store a reference to it
 		# Assumes the Area2D is a child of the box's main node
 		if not held_box:
