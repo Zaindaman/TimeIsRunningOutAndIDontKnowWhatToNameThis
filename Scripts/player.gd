@@ -86,8 +86,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemybounce"):
 		print("bounced")
 		velocity.y = JUMP_FORCE + -100
-	elif body.is_in_group("pickup"):
+	elif body.is_in_group("Pickup"):
 		time_remaining += body.pickup
+		if time_remaining > $TextureProgressBar2.max_value:
+			time_remaining = $TextureProgressBar2.max_value
+		$TextureProgressBar2.value = time_remaining
 	
 
 
