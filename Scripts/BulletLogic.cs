@@ -10,6 +10,10 @@ public partial class BulletLogic : Node2D
 
     public bool isInversion { get; set; } = false;
 
+    private Area2D _area2D;
+
+    private Timer _lifetimeTimer;
+
     // NOTE: If you need collision detection, make the root node an Area2D and manage it there.
 
     public override void _Ready()
@@ -18,6 +22,15 @@ public partial class BulletLogic : Node2D
         ProcessMode = ProcessModeEnum.Always;
 
         globalValues = GetNode<GlobalValues>("/root/GlobalValues");
+        _area2D = GetNode<Area2D>("Area2D");
+        _area2D.Monitorable = true;
+
+
+        _lifetimeTimer = GetNode<Timer>("BulletLifeTime");
+
+        _lifetimeTimer.Timeout += _on_bullet_life_time_timeout;
+
+        _lifetimeTimer.Start();
     }
 
     // SetDirection is retained for spawner compatibility, but unused
@@ -32,13 +45,22 @@ public partial class BulletLogic : Node2D
             // Calculate the forward step amount
             float step = Speed * (float)delta;
 
-            // 3. Move the position directly along the forward vector (Transform.X)
-            // This is the simplest straight-line movement and entirely bypasses MoveAndSlide().
+            _area2D.Monitorable = true;
+
             Position += Transform.X.Normalized() * step;
+
+            _lifetimeTimer.Paused = false;
         }
-        // When paused, no movement happens because the loop skips the code block.
+        else
+        {
+            _area2D.Monitorable = false;
+            _lifetimeTimer.Paused = true;
+        }
     }
 
-    // NOTE: If you switch to Node2D, you must implement your own
-    // collision detection (e.g., using an Area2D child and checking signals).
+
+    private void _on_bullet_life_time_timeout()
+    {
+        QueueFree();
+    }
 }

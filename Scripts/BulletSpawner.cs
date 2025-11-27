@@ -4,7 +4,7 @@ using System;
 public partial class BulletSpawner : CharacterBody2D
 {
     [Export] public PackedScene Bullet;
-    [Export] public float xOffsetDistance = 200f;
+    [Export] public float xOffsetDistance = 100f;
     [Export] public float yOffsetDistance = 0f;
 
     private GlobalValues globalValues;
